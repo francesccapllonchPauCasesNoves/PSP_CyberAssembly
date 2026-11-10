@@ -9,7 +9,7 @@ public class CentralSoldadora {
     Semaphore estacions = new Semaphore(3);
 
     public synchronized void centralSoldadora(RobotTask robot){
-
+        
     }
     
 }
