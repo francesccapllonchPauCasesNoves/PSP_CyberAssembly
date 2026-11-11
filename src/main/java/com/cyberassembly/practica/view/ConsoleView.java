@@ -37,5 +37,12 @@ public class ConsoleView {
         System.out.println("Robot nº"+bot.getIdBot()+" ha certificat bateria "+bat.getId());
     }
 
+    public static void AlertaSobreescalfament() {
+        System.out.println("ALERTA PER SOBREESCALFAMENT, S'ATURA TOT DURANT 2 SEGONS");
+    }
+
+    public static void ResoldreEmergencia() {
+        System.out.println("EMERGENCIA RESOLTA!");
+    }
     
 }
