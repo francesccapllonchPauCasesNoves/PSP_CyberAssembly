@@ -1,8 +1,8 @@
-package com.cyberassembly.model;
+package com.cyberassembly.practica.model;
 
 import java.util.concurrent.Semaphore;
 
-import com.cyberassembly.tasks.RobotTask;
+import com.cyberassembly.practica.tasks.RobotTask;
 
 public class CentralSoldadora {
 

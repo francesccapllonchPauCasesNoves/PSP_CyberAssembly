@@ -1,4 +1,4 @@
-package com.cyberassembly.tasks;
+package com.cyberassembly.practica.tasks;
 
 public class SensorAveries implements Runnable{
 
