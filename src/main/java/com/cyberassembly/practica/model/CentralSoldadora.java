@@ -10,7 +10,7 @@ public class CentralSoldadora {
 
     Semaphore estacions = new Semaphore(3);
 
-    public synchronized void centralSoldadora(RobotTask robot, Bateria bateriaAgafada) throws InterruptedException{
+    public void centralSoldadora(RobotTask robot, Bateria bateriaAgafada) throws InterruptedException{
 
         try{
             ConsoleView.Soldant(robot);
