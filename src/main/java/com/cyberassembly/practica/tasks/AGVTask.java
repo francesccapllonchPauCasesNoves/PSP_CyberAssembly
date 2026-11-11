@@ -21,6 +21,7 @@ public class AGVTask implements Runnable{
             try {
                 
                 cinta.afegirBateria(bateriaNova);
+                ConsoleView.Afegint();
                 Thread.sleep(500);
                 ConsoleView.BateriaAfegida(bateriaNova);
             } catch (InterruptedException ex) {

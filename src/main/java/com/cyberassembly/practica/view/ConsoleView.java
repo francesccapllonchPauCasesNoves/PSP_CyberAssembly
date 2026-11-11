@@ -5,11 +5,29 @@ import com.cyberassembly.practica.tasks.RobotTask;
 
 public class ConsoleView {
 
+    public static void Afegint() {
+        System.out.println("AGV afegint...");
+    }
+
     public static void BateriaAfegida(Bateria bateriaNova) {
         System.out.println("Bateria afegida nº"+bateriaNova.getId()+" per AGV!");
+    }
 
+    public static void Agafant(RobotTask bot) {
+        System.out.println( bot.getIdBot()+" agafant...");
     }
 
     public static void BateriaConsumida(RobotTask bot, Bateria bat) {
-        System.out.println("Bateria nº"+bat.getId()+" consumida per robot nº"+bot.getIdBot());    }
+        System.out.println("Bateria nº"+bat.getId()+" consumida per robot nº"+bot.getIdBot());    
+    }
+
+    public static void Soldant(RobotTask bot) {
+        System.out.println(bot.getIdBot()+" soldant...");
+    }
+
+    public static void BateriaSoldada(RobotTask bot, Bateria bat) {
+        System.out.println("Bateria nº"+bat.getId()+" soldada per robot nº"+bot.getIdBot()); 
+    }
+
+    
 }

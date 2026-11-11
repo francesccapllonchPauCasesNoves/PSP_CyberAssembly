@@ -1,5 +1,6 @@
 package com.cyberassembly.practica.app;
 
+import com.cyberassembly.practica.model.CentralSoldadora;
 import com.cyberassembly.practica.model.CintaTransportadora;
 import com.cyberassembly.practica.tasks.AGVTask;
 import com.cyberassembly.practica.tasks.RobotTask;
@@ -7,12 +8,12 @@ import com.cyberassembly.practica.tasks.RobotTask;
 public class MainApp {
     public static void main(String[] args) {
         CintaTransportadora cinta = new CintaTransportadora(5);
-
+        CentralSoldadora central = new CentralSoldadora();
         AGVTask agv = new AGVTask(cinta);
 
-        RobotTask bot1 = new RobotTask(1,cinta);
-        RobotTask bot2 = new RobotTask(2,cinta);
-        RobotTask bot3 = new RobotTask(3,cinta);
+        RobotTask bot1 = new RobotTask(1,cinta, central);
+        RobotTask bot2 = new RobotTask(2,cinta, central);
+        RobotTask bot3 = new RobotTask(3,cinta, central);
 
         Thread agvTask = new Thread(agv);
 
