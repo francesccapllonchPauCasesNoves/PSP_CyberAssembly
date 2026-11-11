@@ -29,5 +29,13 @@ public class ConsoleView {
         System.out.println("Bateria nº"+bat.getId()+" soldada per robot nº"+bot.getIdBot()); 
     }
 
+    public static void ProvarCertificarBateria(RobotTask bot, Bateria bat) {
+        System.out.println("Robot nº"+bot.getIdBot()+" esta intentant certificar...");
+    }
+
+    public static void CertificarBateria(RobotTask bot, Bateria bat) {
+        System.out.println("Robot nº"+bot.getIdBot()+" ha certificat bateria "+bat.getId());
+    }
+
     
 }

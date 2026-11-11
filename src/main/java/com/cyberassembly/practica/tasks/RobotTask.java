@@ -2,6 +2,7 @@ package com.cyberassembly.practica.tasks;
 
 import com.cyberassembly.practica.model.CentralSoldadora;
 import com.cyberassembly.practica.model.CintaTransportadora;
+import com.cyberassembly.practica.model.SupervisorCentral;
 import com.cyberassembly.practica.view.ConsoleView;
 
 public class RobotTask implements Runnable{
@@ -10,11 +11,13 @@ public class RobotTask implements Runnable{
     CintaTransportadora cinta;
     Bateria bateriaAgafada;
     CentralSoldadora central;
+    SupervisorCentral certificat;
 
-    public RobotTask(int id, CintaTransportadora cinta, CentralSoldadora central) {
+    public RobotTask(int id, CintaTransportadora cinta, CentralSoldadora central, SupervisorCentral certificat) {
         this.idBot = id;
         this.cinta = cinta;
         this.central = central;
+        this.certificat = certificat;
     }
 
     public int getIdBot() {
@@ -33,6 +36,9 @@ public class RobotTask implements Runnable{
                 ConsoleView.BateriaConsumida(this,bateriaAgafada);
 
                 central.centralSoldadora(this, bateriaAgafada);
+
+                certificat.supervisorCentral(this, bateriaAgafada);
+                
 
             } catch (InterruptedException ex) {
                 System.getLogger(RobotTask.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
