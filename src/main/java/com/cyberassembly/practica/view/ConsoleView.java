@@ -38,7 +38,7 @@ public class ConsoleView {
     }
 
     public static void AlertaSobreescalfament() {
-        System.out.println("ALERTA PER SOBREESCALFAMENT, S'ATURA TOT DURANT 2 SEGONS");
+        System.out.println("ALERTA PER SOBREESCALFAMENT, S'ATURA L'ENTRADA AL SUPERVISOR DURANT 2 SEGONS");
     }
 
     public static void ResoldreEmergencia() {

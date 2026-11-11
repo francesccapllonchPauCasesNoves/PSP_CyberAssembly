@@ -35,7 +35,11 @@ public class RobotTask implements Runnable{
                 bateriaAgafada = cinta.consumirBateria();
                 ConsoleView.BateriaConsumida(this,bateriaAgafada);
 
+
+                certificat.comprovarAlerta();
                 central.centralSoldadora(this, bateriaAgafada);
+                certificat.notificarUs();
+
 
                 certificat.supervisorCentral(this, bateriaAgafada);
                 
