@@ -22,7 +22,7 @@ public class SensorAveries implements Runnable{
         while(true){
             try {
                 Thread.sleep(2000);
-                                
+                ConsoleView.AlertaSobreescalfament();                
                 int numEstacio = random.nextInt(3);
                 central.generarAveria(numEstacio);
                 ConsoleView.EstacioAvarieda(numEstacio);

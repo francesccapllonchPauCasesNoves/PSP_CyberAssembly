@@ -12,7 +12,6 @@ public class RobotTask implements Runnable{
     Bateria bateriaAgafada;
     CentralSoldadora central;
     SupervisorCentral supervisor;
-    int bateria = 100;
 
     public RobotTask(int id, CintaTransportadora cinta, CentralSoldadora central, SupervisorCentral supervisor) {
         this.idBot = id;
@@ -30,20 +29,17 @@ public class RobotTask implements Runnable{
         for (int i = 0; i < 3; i++) {
             
             try {
-
-                supervisor.comprovarBateria(this, bateria);
-
                 ConsoleView.Agafant(this);
                 Thread.sleep(500);
 
                 bateriaAgafada = cinta.consumirBateria();
                 ConsoleView.BateriaConsumida(this,bateriaAgafada);
 
+
                 supervisor.comprovarAlerta();
                 central.soldar(this, bateriaAgafada);
                 supervisor.notificarUs();     
-                central.certificar(this, bateriaAgafada);
-                bateria = bateria -18;
+                central.certificar(this, bateriaAgafada);   
 
             } catch (InterruptedException ex) {
                 System.getLogger(RobotTask.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);

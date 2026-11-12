@@ -2,7 +2,6 @@ package com.cyberassembly.practica.model;
 
 import java.util.Random;
 
-import com.cyberassembly.practica.tasks.RobotTask;
 import com.cyberassembly.practica.view.ConsoleView;
 
 public class SupervisorCentral {
@@ -52,23 +51,6 @@ public class SupervisorCentral {
 
         ConsoleView.ResoldreEmergencia();
         notifyAll();
-    }
-
-    public synchronized boolean comprovarBateria(RobotTask bot ,int bateria){
-        if(bateria < 20){
-            new Thread(() -> {
-            try {
-                Thread.sleep(2000);
-                ConsoleView.CarregarBateria(bot, bateria);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-            }).start();
-            return true;
-        }
-        return false;
-    }
-
-    
+    }  
     
 }
