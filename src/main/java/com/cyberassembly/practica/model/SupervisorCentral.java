@@ -1,41 +1,24 @@
 package com.cyberassembly.practica.model;
 
 import java.util.Random;
-import java.util.concurrent.Semaphore;
 
-import com.cyberassembly.practica.tasks.Bateria;
 import com.cyberassembly.practica.tasks.RobotTask;
 import com.cyberassembly.practica.view.ConsoleView;
 
 public class SupervisorCentral {
-    Semaphore estacions = new Semaphore(1);
+    
     
     private boolean sobreescalfament = false; 
     private int usosConsecutius = 0;
     private final Random random = new Random();
 
-    public void supervisorCentral(RobotTask robot, Bateria bateriaAgafada) throws InterruptedException{
-
-        try{
-            
-
-            ConsoleView.ProvarCertificarBateria(robot, bateriaAgafada);
-            Thread.sleep(500);
-
-            estacions.acquire();
-            
-            ConsoleView.CertificarBateria(robot, bateriaAgafada);
-
-            
-        }finally{
-            estacions.release();
-        }
-    }
-
+    
     public synchronized void notificarUs() throws InterruptedException{
+        
         usosConsecutius++;
         int probablitat = usosConsecutius * 8;
         int numRand = random.nextInt(100) + 1;
+
         if(numRand <= probablitat){
             sobreescalfament();
         }
@@ -52,7 +35,14 @@ public class SupervisorCentral {
         sobreescalfament = true;
         ConsoleView.AlertaSobreescalfament();
 
-        resoldreEmergencia();
+        new Thread(() -> {
+            try {
+                Thread.sleep(500);
+                resoldreEmergencia();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }).start();
     }
 
     public synchronized void resoldreEmergencia(){
@@ -62,6 +52,21 @@ public class SupervisorCentral {
 
         ConsoleView.ResoldreEmergencia();
         notifyAll();
+    }
+
+    public synchronized boolean comprovarBateria(RobotTask bot ,int bateria){
+        if(bateria < 20){
+            new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+                ConsoleView.CarregarBateria(bot, bateria);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            }).start();
+            return true;
+        }
+        return false;
     }
 
     

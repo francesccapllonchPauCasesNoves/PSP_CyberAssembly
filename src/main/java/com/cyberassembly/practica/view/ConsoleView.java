@@ -44,5 +44,17 @@ public class ConsoleView {
     public static void ResoldreEmergencia() {
         System.out.println("EMERGENCIA RESOLTA!");
     }
+
+    public static void EstacioAvarieda(int estacio) {
+        System.out.println("L'estacio nº"+estacio+" esta avariada!");
+    }
+
+    public static void EstacioArreglada(int estacio) {
+        System.out.println("L'estacio nº"+estacio+" esta arreglada pel tècnic!");    
+    }
+
+    public static void CarregarBateria(RobotTask bot, int bateria) {
+        System.out.println("Bateria del robot nº"+bot.getIdBot()+" al "+bateria+"%");
+    }
     
 }
